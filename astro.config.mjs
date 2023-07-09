@@ -5,17 +5,21 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'My Docs',
+      title: 'No550',
+      logo: {
+        light: '/src/assets/no550_logo.svg',
+        dark: '/src/assets/no550_logo_darkmode.svg',
+        replacesTitle: true,
+      },
       social: {
-        github: 'https://github.com/withastro/starlight',
+        github: 'https://BlobDevelopment.com/github',
+        twitter: 'https://BlobDevelopment.com/twitter',
+        discord: 'https://BlobDevelopment.com/discord'
       },
       sidebar: [
         {
-          label: 'Guides',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', link: '/guides/example/' },
-          ],
+          label: 'API',
+          autogenerate: { directory: 'api' },
         },
         {
           label: 'Reference',
