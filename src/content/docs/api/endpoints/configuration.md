@@ -29,7 +29,7 @@ You can send a `GET` to `https://api.no550.com/config` in order to get the curre
 
 Example:
 ```sh
-$ curl http://localhost:8787/config -s -H 'Authorization: API_TOKEN' | jq .
+$ curl https://api.no550.com/config -s -H 'Authorization: API_TOKEN' | jq .
 
 {
 	"success": true,
@@ -55,7 +55,7 @@ You can send a `PATCH` to `https://api.no550.com/config` in order to update the 
 
 Example:
 ```sh
-$ curl http://localhost:8787/config -s -H 'Authorization: API_TOKEN' \
+$ curl https://api.no550.com/config -s -H 'Authorization: API_TOKEN' \
 	-X PATCH \
 	-d '{"basic": {"blockThrowaway": false }}'
 
