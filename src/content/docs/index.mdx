@@ -16,14 +16,20 @@ hero:
       icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 <CardGrid stagger>
-	<Card title="Configuration documentation" icon="setting">
-		Want to learn what a configuration setting means or how it works? Read our configuration documentation.
-	</Card>
+	<LinkCard
+		title="Configuration documentation"
+		description="Want to learn what a configuration setting means or how it works? Read our configuration documentation."
+		icon="setting"
+		href="/configuration"
+	/>
 
-	<Card title="API documentation" icon="open-book">
-		See the API documentation.
-	</Card>
+	<LinkCard
+		title="API documentation"
+		description="See the API documentation."
+		icon="open-book"
+		href="/api"
+	/>
 </CardGrid>

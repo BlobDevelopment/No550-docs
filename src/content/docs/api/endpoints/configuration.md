@@ -13,7 +13,7 @@ You can send a `GET` to `https://api.no550.com/config` in order to get the curre
 	"success": true,
 	"message": "Success",
 	"data": {
-		"mode": 'basic',
+		"mode": "basic",
 		"basic": {
 			"blockThrowaway": boolean,
 			"blockFake": boolean,
