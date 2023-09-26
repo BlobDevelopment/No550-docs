@@ -7,7 +7,7 @@ The `/config` endpoint allows you to interact with the configuration settings in
 
 ## Get configuration
 
-You can send a `GET` to `https://api.no550.com/config` in order to get the current configuration. We will return the following in `data`:
+You can send a `GET` to `https://api.no550.com/config` in order to get the current configuration. We will return the following response:
 ```json
 {
 	"success": true,
