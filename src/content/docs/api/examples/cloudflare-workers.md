@@ -21,6 +21,13 @@ To initialise a Worker project you need to run:
 $ npx wrangler init
 ```
 
+Before we go into the code, we need to setup a [secret](https://developers.cloudflare.com/workers/configuration/secrets/) for the API token. To do this, run the following command:
+```bash
+$ npx wrangler secret put NO550_API_TOKEN
+
+# And then paste in the API token from the dashboard (https://dash.no550.com/account)
+```
+
 Then in the main file, use the following code as a starting point:
 ```javascript
 interface RequestBody {
