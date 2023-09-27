@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
+	site: 'https://docs.no550.com',
 	integrations: [
 		starlight({
 			title: 'No550 Docs',
@@ -11,7 +12,9 @@ export default defineConfig({
 			},
 			favicon: './src/assets/favicon.ico',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/BlobDevelopment/no550-docs',
+				discord: 'https://discord.no550.com',
+				twitter: 'https://twitter.com/BlobDevelopment',
 			},
 			sidebar: [
 				{
