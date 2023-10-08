@@ -25,13 +25,13 @@ Here's a basic example using cURL to validate a single email address:
 ```bash
 curl -X POST 'https://api.no550.com/check' \
 	-H 'Content-Type: application/json' \
-	-H 'Authorization: API_TOKEN'
+	-H 'Authorization: API_TOKEN' \
 	-d '{"email": "example@example.com"}'
 ```
 
-Replace "API_TOKEN" with your actual No550 API token
+Replace "API_TOKEN" with your actual No550 API token.
 
-## Interpret Validation Results
+## Interpret validation results
 
 After sending an email address for validation to No550, you will receive a response indicating the status of the email address. A typical response might look like this:
 

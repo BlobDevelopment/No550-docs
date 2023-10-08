@@ -5,7 +5,7 @@ description: Basic configuration of No550
 
 The basic configuration let's you easily toggle checks on or off depending on how you want to use No550.
 
-## Option
+## Options
 
 ### Block throwaway emails
 
