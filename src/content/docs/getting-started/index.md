@@ -40,7 +40,7 @@ After sending an email address for validation to No550, you will receive a respo
   "success": true,
   "data": {
     "email": "example@example.com",
-		"valid": false,
+      "valid": false,
     "status": "invalid",
   }
 }
