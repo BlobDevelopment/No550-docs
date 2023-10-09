@@ -10,7 +10,7 @@ export default defineConfig({
 				src: './src/assets/No550_icon.png',
 				alt: 'No550 Logo',
 			},
-			favicon: './src/assets/favicon.ico',
+			favicon: 'favicon.ico',
 			social: {
 				github: 'https://github.com/BlobDevelopment/no550-docs',
 				discord: 'https://discord.no550.com',
