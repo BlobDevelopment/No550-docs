@@ -28,18 +28,18 @@ $ curl https://api.no550.com/config/blocklist -s -H 'Authorization: API_TOKEN' |
 
 ```json
 {
-  "success": true,
-  "message": "Success",
-  "data": {
-    "domains": [
+	"success": true,
+	"message": "Success",
+	"data": {
+		"domains": [
 			"example.com",
 			"example.org"
 		],
-    "emails": [
+		"emails": [
 			"test@example.com",
 			"test@example.org"
 		]
-  }
+	}
 }
 ```
 
@@ -63,20 +63,20 @@ $ curl https://api.no550.com/config/blocklist -s \
 
 ```json
 {
-  "success": true,
-  "message": "Update successful",
-  "data": {
-    "domains": [
-      "example.com",
+	"success": true,
+	"message": "Update successful",
+	"data": {
+		"domains": [
+			"example.com",
 			"example.org",
 			"example.net"
-    ],
-    "emails": [
-      "test@example.com",
+		],
+		"emails": [
+			"test@example.com",
 			"test@example.org",
 			"test@example.net"
-    ]
-  }
+		]
+	}
 }
 ```
 
@@ -100,16 +100,16 @@ $ curl https://api.no550.com/config/blocklist -s \
 
 ```json
 {
-  "success": true,
-  "message": "Update successful",
-  "data": {
-    "domains": [
-      "example.com"
-    ],
-    "emails": [
-      "test@example.com"
-    ]
-  }
+	"success": true,
+	"message": "Update successful",
+	"data": {
+		"domains": [
+			"example.com"
+		],
+		"emails": [
+			"test@example.com"
+		]
+	}
 }
 ```
 
@@ -129,15 +129,15 @@ $ curl https://api.no550.com/config/blocklist -s \
 
 ```json
 {
-  "success": true,
-  "message": "Update successful",
-  "data": {
-    "domains": [
-      "example.com",
+	"success": true,
+	"message": "Update successful",
+	"data": {
+		"domains": [
+			"example.com",
 			"example.org"
-    ],
-    "emails": []
-  }
+		],
+		"emails": []
+	}
 }
 ```
 
@@ -159,16 +159,16 @@ $ curl https://api.no550.com/config/blocklist -s \
 
 ```json
 {
-  "success": true,
-  "message": "Update successful",
-  "data": {
-    "domains": [
+	"success": true,
+	"message": "Update successful",
+	"data": {
+		"domains": [
 			"example.org"
-    ],
-    "emails": [
-      "test@example.com",
+		],
+		"emails": [
+			"test@example.com",
 			"test@example.org"
-    ]
-  }
+		]
+	}
 }
 ```
