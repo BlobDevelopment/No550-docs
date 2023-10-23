@@ -5,7 +5,7 @@ description: Documentation around interacting with the No550 blocklist API.
 
 The `/config/blocklist` endpoints allow you to get, update or delete from your blocklists.
 
-In all examples, we have 2 domains and 2 emails in our blocklist. We have `example.com` and `example.org` as domains along with `test@example.com` and `example.org` as emails.
+In all examples, we have 2 domains and 2 emails in our blocklist. We have `example.com` and `example.org` as domains along with `test@example.com` and `test@example.org` as emails.
 
 ## Get blocklist
 
@@ -49,7 +49,7 @@ You can send a `PATCH` to `https://api.no550.com/config/blocklist` in order to a
 
 To use the endpoint, you can provide a `domains` and/or `emails` string array in the body. Any non-duplicate values will be appended to the blocklist.
 
-An empty array and omitted values will be ignored. If you want to remove an entry (or entries) you can use the [`DELETE` endpoint](#). If you wish to clear the blocklist then you can use the [`PUT` endpoint](#clear-blocklist).
+An empty array and omitted values will be ignored. If you want to remove an entry (or entries) you can use the [`DELETE` endpoint](#delete-from-blocklist). If you wish to clear the blocklist then you can use the [`PUT` endpoint](#clear-blocklist).
 
 Example:
 ```sh
