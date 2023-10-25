@@ -57,8 +57,7 @@ $ curl https://api.no550.com/config/blocklist -s \
 	-X PATCH \
 	-H 'Authorization: API_TOKEN' \
 	-H 'Content-Type: application/json' \
-	-d '{"domains": ["example.net"], "emails": ["test@example.net"]}' \
-	| jq .
+	-d '{"domains": ["example.net"], "emails": ["test@example.net"]}'
 ```
 
 ```json
@@ -94,8 +93,7 @@ $ curl https://api.no550.com/config/blocklist -s \
 	-X PUT \
 	-H 'Authorization: API_TOKEN' \
 	-H 'Content-Type: application/json' \
-	-d '{"domains": ["example.com"], "emails": ["test@example.com"]}' \
-	| jq .
+	-d '{"domains": ["example.com"], "emails": ["test@example.com"]}'
 ```
 
 ```json
@@ -123,8 +121,7 @@ $ curl https://api.no550.com/config/blocklist -s \
 	-X PUT \
 	-H 'Authorization: API_TOKEN' \
 	-H 'Content-Type: application/json' \
-	-d '{"emails": []}' \
-	| jq .
+	-d '{"emails": []}'
 ```
 
 ```json
@@ -153,8 +150,7 @@ $ curl https://api.no550.com/config/blocklist -s \
 	-X DELETE \
 	-H 'Authorization: API_TOKEN' \
 	-H 'Content-Type: application/json' \
-	-d '{"domains": ["example.com"]}' \
-	| jq .
+	-d '{"domains": ["example.com"]}'
 ```
 
 ```json
