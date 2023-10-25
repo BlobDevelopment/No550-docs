@@ -23,7 +23,7 @@ You can send a `GET` to `https://api.no550.com/config/blocklist` in order to get
 
 Example:
 ```sh
-$ curl https://api.no550.com/config/blocklist -s -H 'Authorization: API_TOKEN' | jq .
+$ curl https://api.no550.com/config/blocklist -s -H 'Authorization: API_TOKEN'
 ```
 
 ```json
