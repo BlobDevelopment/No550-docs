@@ -37,17 +37,15 @@ After sending an email address for validation to No550, you will receive a respo
 
 ```json
 {
-  "success": true,
-  "data": {
-    "email": "example@example.com",
-      "valid": false,
-    "status": "invalid",
-  }
+	"success": true,
+	"data": {
+		"email": "example@example.com",
+		"valid": false,
+		"status": "invalid"
+	}
 }
 ```
 
-"email": The email address you submitted for validation.
-"valid": If the email address is valid, this field will be "true." If the email address is invalid, this field will be "false."
-"status": The validation status, which can be "valid", "invalid" or "suspicious". In the "supicious" status, if you have [Block suspicious domains](/configuration/basic/#block-suspicious-domains) enabled, this will make "valid" false.
-"detectionMethod": The method used for validation (e.g., "mx_records" for checking MX records).
-Depending on the "status" field, you can decide how to handle the email address in your application or email campaign.
+* `email`: The email address you submitted for validation.
+* `valid`: If the email address is valid, this field will be "true." If the email address is invalid, this field will be "false."
+* `status`: The validation status, which can be "valid", "invalid" or "suspicious". In the "supicious" status, if you have [Block suspicious domains](/configuration/basic/#block-suspicious-domains) enabled, this will make "valid" false.
