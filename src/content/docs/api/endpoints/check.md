@@ -15,6 +15,7 @@ Example:
 ```sh
 $ curl https://api.no550.com/check -s -H 'Authorization: API_TOKEN' \
 	-X POST \
+	-H 'Content-Type: application/json' \
 	-d '{"email": "example@example.com"}'
 
 {

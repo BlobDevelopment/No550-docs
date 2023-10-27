@@ -57,6 +57,7 @@ Example:
 ```sh
 $ curl https://api.no550.com/config -s -H 'Authorization: API_TOKEN' \
 	-X PATCH \
+	-H 'Content-Type: application/json' \
 	-d '{"basic": {"blockThrowaway": false }}'
 
 {
