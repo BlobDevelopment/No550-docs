@@ -14,7 +14,7 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/BlobDevelopment/no550-docs',
 				discord: 'https://discord.no550.com',
-				twitter: 'https://twitter.com/BlobDevelopment',
+				twitter: 'https://twitter.no550.com',
 			},
 			sidebar: [
 				{
