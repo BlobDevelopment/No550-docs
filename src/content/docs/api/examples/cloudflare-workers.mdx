@@ -1,0 +1,176 @@
+---
+title: Cloudflare Workers
+description: Example of using No550 with Cloudflare Workers.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Welcome to the [Cloudflare Workers](https://workers.dev) example documentation for integrating with No550. In this guide, you'll learn how to use Cloudflare Workers to validate email addresses using the No550 API and perform conditional actions based on the response.
+
+## Prerequisites
+
+Before you begin, make sure you have the following prerequisites:
+
+* A No550 account
+* A Cloudflare account with access to Cloudflare Workers.
+
+## Create a Cloudflare Worker
+
+First, you need to create a Cloudflare Worker that will handle incoming requests and interact with the No550 API.
+
+To initialise a Worker project you need to run:
+```bash
+$ npx wrangler init
+```
+
+Before we go into the code, we need to setup a [secret](https://developers.cloudflare.com/workers/configuration/secrets/) for the API token. To do this, run the following command:
+```bash
+$ npx wrangler secret put NO550_API_TOKEN
+
+# And then paste in the API token from the dashboard (https://dash.no550.com/account)
+```
+
+Then in the main file, use the following code as a starting point:
+<Tabs>
+	<TabItem label="JavaScript"> 
+		```javascript title="src/index.js"
+		export default {
+			async fetch(request, env) {
+				try {
+					// Parse the request body to extract the email address.
+					const { email } = await request.json();
+
+					// Make a POST request to the No550 API.
+					const no550Response = await fetch('https://api.no550.com/check', {
+						method: 'POST',
+						body: JSON.stringify({ email }),
+						headers: {
+							Authorization: env.NO550_API_TOKEN,
+							'Content-Type': 'application/json',
+						},
+					});
+
+					// Handle the response from the No550 API.
+					const no550Data = await no550Response.json();
+
+					if (no550Data.success === false) {
+						return new Response('An error occurred: ' + no550Data.error, {
+							status: 500,
+						});
+					}
+
+					// Check the email status.
+					if (no550Data.data.status === 'invalid') {
+						// Email is invalid, block the request.
+						return new Response('Email validation failed: Invalid email address', {
+							status: 400,
+							headers: {
+								'Content-Type': 'text/plain',
+							},
+						});
+					} else {
+						// Email is valid, proceed with the request as normal.
+						return fetch(request);
+					}
+				} catch (error) {
+					return new Response('An error occurred: ' + error.message, {
+						status: 500,
+					});
+				}
+			}
+		}
+		```
+	</TabItem>
+	<TabItem label="TypeScript">
+		```typescript title="src/index.ts"
+		interface RequestBody {
+			email: string;
+		}
+
+		interface CheckResponse {
+			success: boolean;
+			data?: {
+				status: 'valid' | 'invalid';
+			};
+			error?: string;
+		}
+
+		interface Env {
+			NO550_API_TOKEN: string;
+		}
+
+		export default {
+			async fetch(request: Request, env: Env) {
+				try {
+					// Parse the request body to extract the email address.
+					const { email } = await request.json<RequestBody>();
+
+					// Make a POST request to the No550 API.
+					const no550Response = await fetch('https://api.no550.com/check', {
+						method: 'POST',
+						body: JSON.stringify({ email }),
+						headers: {
+							Authorization: env.NO550_API_TOKEN,
+							'Content-Type': 'application/json',
+						},
+					});
+
+					// Handle the response from the No550 API.
+					const no550Data = await no550Response.json<CheckResponse>();
+
+					if (no550Data.success === false) {
+						return new Response('An error occurred: ' + no550Data.error, {
+							status: 500,
+						});
+					}
+
+					// Check the email status.
+					if (no550Data.data!.status === 'invalid') {
+						// Email is invalid, block the request.
+						return new Response('Email validation failed: Invalid email address', {
+							status: 400,
+							headers: {
+								'Content-Type': 'text/plain',
+							},
+						});
+					} else {
+						// Email is valid, proceed with the request as normal.
+						return fetch(request);
+					}
+				} catch (error) {
+					return new Response('An error occurred: ' + (error as Error).message, {
+						status: 500,
+					});
+				}
+			}
+		}
+		```
+</TabItem>
+</Tabs>
+
+Feel free to customize the code to fit your use case.
+
+## Deploy the Worker
+
+Once you've created the Cloudflare Worker, you need to deploy it to the Cloudflare network. To do this, run the following command:
+
+```bash
+npx wrangler deploy
+```
+
+## Test
+
+To test your Cloudflare Worker, you can send a POST request to its URL with an email address in the request body. For example:
+
+```bash
+curl -X POST \
+	-H "Content-Type: application/json" \
+	-d '{"email": "example@example.com"}' \
+	https://YOUR_WORKER.YOUR_SUBDOMAIN.workers.dev/signup
+```
+
+Replace https://YOUR_WORKER.YOUR_SUBDOMAIN.workers.dev/signup with the actual URL of your Cloudflare Worker.
+
+## Conclusion
+
+You've successfully created a Cloudflare Worker that integrates with the No550 API to validate email addresses. If the email is valid, you can customize the worker to perform sign-up or other actions. If the email is invalid, the worker will block the request. Feel free to modify the code to suit your specific use case and requirements.
